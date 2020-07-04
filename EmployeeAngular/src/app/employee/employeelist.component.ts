@@ -22,16 +22,25 @@ export class EmployeeListComponent implements OnInit {
     // The private variable _employeeService which points to
     // EmployeeService singelton instance is then available
     // throughout this class
+    // "Problem with the service. Please try again after sometime"
+    statusMessage: string = 'Loading data. Please wait...';
     constructor(private _employeeService: EmployeeService) {
     }
 
     // In ngOnInit() life cycle hook call the getEmployees()
     // service method of EmployeeService using the private
     // variable _employeeService
+    //ngOnInit() {
+    //    this.employees = this._employeeService.getEmployees();
+    //}
     ngOnInit() {
-        this.employees = this._employeeService.getEmployees();
+        this._employeeService.getEmployees()
+            .subscribe(employeesData => this.employees = employeesData,
+            error => {
+                this.statusMessage = 'Problem with the service. Please try again after sometime';
+                console.error(error);
+            });
     }
-
     getTotalEmployeesCount(): number {
         return this.employees.length;
     }

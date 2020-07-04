@@ -13,19 +13,29 @@ var core_1 = require("@angular/core");
 // Import EmployeeService
 var employee_service_1 = require("./employee.service");
 var EmployeeListComponent = (function () {
-    // Inject EmployeeService using the constructor
-    // The private variable _employeeService which points to
-    // EmployeeService singelton instance is then available
-    // throughout this class
     function EmployeeListComponent(_employeeService) {
         this._employeeService = _employeeService;
         this.selectedEmployeeCountRadioButton = 'All';
+        // Inject EmployeeService using the constructor
+        // The private variable _employeeService which points to
+        // EmployeeService singelton instance is then available
+        // throughout this class
+        // "Problem with the service. Please try again after sometime"
+        this.statusMessage = 'Loading data. Please wait...';
     }
     // In ngOnInit() life cycle hook call the getEmployees()
     // service method of EmployeeService using the private
     // variable _employeeService
+    //ngOnInit() {
+    //    this.employees = this._employeeService.getEmployees();
+    //}
     EmployeeListComponent.prototype.ngOnInit = function () {
-        this.employees = this._employeeService.getEmployees();
+        var _this = this;
+        this._employeeService.getEmployees()
+            .subscribe(function (employeesData) { return _this.employees = employeesData; }, function (error) {
+            _this.statusMessage = 'Problem with the service. Please try again after sometime';
+            console.error(error);
+        });
     };
     EmployeeListComponent.prototype.getTotalEmployeesCount = function () {
         return this.employees.length;

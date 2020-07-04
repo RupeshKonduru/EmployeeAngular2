@@ -14,16 +14,18 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<list-employee></list-employee>",
+        //  template: `<list-employee></list-employee>`,
+        //})
+        //export class AppComponent  { }
+        //  template: `Your Text : <input type='text' [(ngModel)]='userText'/>
+        //               <br/><br/>
+        //               <simple [simpleInput]='userText'></simple>
+        //              `
+        //})
+        //export class AppComponent {
+        //    userText: string = 'Pragim';
+        template: "\n                    <div style=\"padding:5px\">\n                        <ul class=\"nav nav-tabs\">\n                            <li routerLinkActive=\"active\">\n                                <a routerLink=\"home\">Home</a>\n                            </li>\n                            <li routerLinkActive=\"active\">\n                                <a routerLink=\"employees\">Employees</a>\n                            </li>\n                        </ul>\n                        <br/>\n                        <router-outlet></router-outlet>\n                    </div>\n              "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
-//  template: `Your Text : <input type='text' [(ngModel)]='userText'/>
-//               <br/><br/>
-//               <simple [simpleInput]='userText'></simple>
-//              `
-//})
-//export class AppComponent {
-//    userText: string = 'Pragim';
-//}
 //# sourceMappingURL=app.component.js.map
