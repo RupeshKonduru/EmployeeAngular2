@@ -18,6 +18,7 @@ var simple_component_1 = require("./Others/simple.component");
 var employee_component_1 = require("./employee/employee.component");
 var employee_service_1 = require("./employee/employee.service");
 var router_1 = require("@angular/router");
+var userPreferences_service_1 = require("./employee/userPreferences.service");
 // Routes is an array of Route objects
 // Each route maps a URL path to a component
 // The 3rd route specifies the route to redirect to if the path
@@ -43,7 +44,7 @@ AppModule = __decorate([
         //RouterModule.forRoot(appRoutes, { useHash: true })],
         declarations: [app_component_1.AppComponent, employee_component_1.EmployeeComponent, pageNotFound_component_1.PageNotFoundComponent, home_component_1.HomeComponent, employeeList_component_1.EmployeeListComponent, employeeCount_component_1.EmployeeCountComponent, simple_component_1.SimpleComponent],
         bootstrap: [app_component_1.AppComponent],
-        providers: [employee_service_1.EmployeeService]
+        providers: [employee_service_1.EmployeeService, userPreferences_service_1.UserPreferencesService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

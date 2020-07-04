@@ -13,10 +13,12 @@ var core_1 = require("@angular/core");
 // Import EmployeeService
 var employee_service_1 = require("./employee.service");
 var router_1 = require("@angular/router");
+var userPreferences_service_1 = require("./userPreferences.service");
 var EmployeeListComponent = (function () {
-    function EmployeeListComponent(_employeeService, _activatedRoute) {
+    function EmployeeListComponent(_employeeService, _activatedRoute, _userPreferencesService) {
         this._employeeService = _employeeService;
         this._activatedRoute = _activatedRoute;
+        this._userPreferencesService = _userPreferencesService;
         this.selectedEmployeeCountRadioButton = 'All';
         // Inject EmployeeService using the constructor
         // The private variable _employeeService which points to
@@ -25,6 +27,16 @@ var EmployeeListComponent = (function () {
         // "Problem with the service. Please try again after sometime"
         this.statusMessage = 'Loading data. Please wait...';
     }
+    Object.defineProperty(EmployeeListComponent.prototype, "colour", {
+        get: function () {
+            return this._userPreferencesService.colourPreference;
+        },
+        set: function (value) {
+            this._userPreferencesService.colourPreference = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     // In ngOnInit() life cycle hook call the getEmployees()
     // service method of EmployeeService using the private
     // variable _employeeService
@@ -65,7 +77,7 @@ EmployeeListComponent = __decorate([
         providers: [employee_service_1.EmployeeService]
     }),
     __metadata("design:paramtypes", [employee_service_1.EmployeeService,
-        router_1.ActivatedRoute])
+        router_1.ActivatedRoute, userPreferences_service_1.UserPreferencesService])
 ], EmployeeListComponent);
 exports.EmployeeListComponent = EmployeeListComponent;
 //# sourceMappingURL=employeeList.component.js.map

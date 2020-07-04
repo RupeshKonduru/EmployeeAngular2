@@ -12,7 +12,7 @@ import { SimpleComponent } from './Others/simple.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeService } from './employee/employee.service';
 import { RouterModule, Routes } from '@angular/router';
-
+import { UserPreferencesService } from './employee/userPreferences.service';
 // Routes is an array of Route objects
 // Each route maps a URL path to a component
 // The 3rd route specifies the route to redirect to if the path
@@ -37,6 +37,6 @@ const appRoutes: Routes = [
         //RouterModule.forRoot(appRoutes, { useHash: true })],
     declarations: [AppComponent,  EmployeeComponent, PageNotFoundComponent, HomeComponent, EmployeeListComponent, EmployeeCountComponent, SimpleComponent],
     bootstrap: [AppComponent],
-    providers: [EmployeeService]
+    providers: [EmployeeService, UserPreferencesService]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import { IEmployee } from './employee';
 // Import EmployeeService
 import { EmployeeService } from './employee.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserPreferencesService } from './userPreferences.service';
 
 @Component({
     selector: 'list-employee',
@@ -26,8 +27,15 @@ export class EmployeeListComponent implements OnInit {
     // "Problem with the service. Please try again after sometime"
     statusMessage: string = 'Loading data. Please wait...';
     constructor(private _employeeService: EmployeeService,
-        private _activatedRoute: ActivatedRoute) {
+        private _activatedRoute: ActivatedRoute, private _userPreferencesService: UserPreferencesService) {
 
+    }
+    get colour(): string {
+        return this._userPreferencesService.colourPreference;
+    }
+
+    set colour(value: string) {
+        this._userPreferencesService.colourPreference = value;
     }
 
     // In ngOnInit() life cycle hook call the getEmployees()
