@@ -101,8 +101,11 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\employee\employee.service.ts" />
+    <TypeScriptCompile Include="src\app\employee\employee.ts" />
     <TypeScriptCompile Include="src\app\employee\employeeCount.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeelist.component.ts" />
+    <TypeScriptCompile Include="src\app\Others\simple.component.ts" />
     <TypeScriptCompile Include="src\main.ts" />
   </ItemGroup>
   <ItemGroup>

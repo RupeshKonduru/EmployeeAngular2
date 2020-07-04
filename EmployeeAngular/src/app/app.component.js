@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.name = 'Employee Details';
     }
     return AppComponent;
 }());
@@ -19,4 +18,12 @@ AppComponent = __decorate([
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
+//  template: `Your Text : <input type='text' [(ngModel)]='userText'/>
+//               <br/><br/>
+//               <simple [simpleInput]='userText'></simple>
+//              `
+//})
+//export class AppComponent {
+//    userText: string = 'Pragim';
+//}
 //# sourceMappingURL=app.component.js.map
