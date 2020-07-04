@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IEmployee } from './employee';
 // Import EmployeeService
 import { EmployeeService } from './employee.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'list-employee',
@@ -24,7 +25,9 @@ export class EmployeeListComponent implements OnInit {
     // throughout this class
     // "Problem with the service. Please try again after sometime"
     statusMessage: string = 'Loading data. Please wait...';
-    constructor(private _employeeService: EmployeeService) {
+    constructor(private _employeeService: EmployeeService,
+        private _activatedRoute: ActivatedRoute) {
+
     }
 
     // In ngOnInit() life cycle hook call the getEmployees()
@@ -34,6 +37,7 @@ export class EmployeeListComponent implements OnInit {
     //    this.employees = this._employeeService.getEmployees();
     //}
     ngOnInit() {
+        //Load all employees
         this._employeeService.getEmployees()
             .subscribe(employeesData => this.employees = employeesData,
             error => {

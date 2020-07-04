@@ -9,7 +9,8 @@ import { PageNotFoundComponent } from './Others/pageNotFound.component';
 import { EmployeeListComponent } from './employee/employeeList.component';
 import { EmployeeCountComponent } from './employee/employeeCount.component';
 import { SimpleComponent } from './Others/simple.component';
-
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeService } from './employee/employee.service';
 import { RouterModule, Routes } from '@angular/router';
 
 // Routes is an array of Route objects
@@ -23,16 +24,19 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'employees', component: EmployeeListComponent },
+    { path: 'employees/:code', component: EmployeeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
+    
 ];
 
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule,
-       // RouterModule.forRoot(appRoutes)],  //Also uncommnet system.webserver in web.config
-        RouterModule.forRoot(appRoutes, { useHash: true })],
-    declarations: [AppComponent, PageNotFoundComponent, HomeComponent, EmployeeListComponent, EmployeeCountComponent, SimpleComponent],
-    bootstrap: [AppComponent]
+        RouterModule.forRoot(appRoutes)],  //Also uncommnet system.webserver in web.config
+        //RouterModule.forRoot(appRoutes, { useHash: true })],
+    declarations: [AppComponent,  EmployeeComponent, PageNotFoundComponent, HomeComponent, EmployeeListComponent, EmployeeCountComponent, SimpleComponent],
+    bootstrap: [AppComponent],
+    providers: [EmployeeService]
 })
 export class AppModule { }

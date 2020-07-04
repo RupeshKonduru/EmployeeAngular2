@@ -12,9 +12,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 // Import EmployeeService
 var employee_service_1 = require("./employee.service");
+var router_1 = require("@angular/router");
 var EmployeeListComponent = (function () {
-    function EmployeeListComponent(_employeeService) {
+    function EmployeeListComponent(_employeeService, _activatedRoute) {
         this._employeeService = _employeeService;
+        this._activatedRoute = _activatedRoute;
         this.selectedEmployeeCountRadioButton = 'All';
         // Inject EmployeeService using the constructor
         // The private variable _employeeService which points to
@@ -31,6 +33,7 @@ var EmployeeListComponent = (function () {
     //}
     EmployeeListComponent.prototype.ngOnInit = function () {
         var _this = this;
+        //Load all employees
         this._employeeService.getEmployees()
             .subscribe(function (employeesData) { return _this.employees = employeesData; }, function (error) {
             _this.statusMessage = 'Problem with the service. Please try again after sometime';
@@ -61,7 +64,8 @@ EmployeeListComponent = __decorate([
         // declaring it in the providers array
         providers: [employee_service_1.EmployeeService]
     }),
-    __metadata("design:paramtypes", [employee_service_1.EmployeeService])
+    __metadata("design:paramtypes", [employee_service_1.EmployeeService,
+        router_1.ActivatedRoute])
 ], EmployeeListComponent);
 exports.EmployeeListComponent = EmployeeListComponent;
 //# sourceMappingURL=employeeList.component.js.map

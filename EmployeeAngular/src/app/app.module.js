@@ -15,6 +15,8 @@ var pageNotFound_component_1 = require("./Others/pageNotFound.component");
 var employeeList_component_1 = require("./employee/employeeList.component");
 var employeeCount_component_1 = require("./employee/employeeCount.component");
 var simple_component_1 = require("./Others/simple.component");
+var employee_component_1 = require("./employee/employee.component");
+var employee_service_1 = require("./employee/employee.service");
 var router_1 = require("@angular/router");
 // Routes is an array of Route objects
 // Each route maps a URL path to a component
@@ -25,6 +27,7 @@ var router_1 = require("@angular/router");
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'employees', component: employeeList_component_1.EmployeeListComponent },
+    { path: 'employees/:code', component: employee_component_1.EmployeeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: pageNotFound_component_1.PageNotFoundComponent }
 ];
@@ -36,10 +39,11 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule,
-            // RouterModule.forRoot(appRoutes)],  //Also uncommnet system.webserver in web.config
-            router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
-        declarations: [app_component_1.AppComponent, pageNotFound_component_1.PageNotFoundComponent, home_component_1.HomeComponent, employeeList_component_1.EmployeeListComponent, employeeCount_component_1.EmployeeCountComponent, simple_component_1.SimpleComponent],
-        bootstrap: [app_component_1.AppComponent]
+            router_1.RouterModule.forRoot(appRoutes)],
+        //RouterModule.forRoot(appRoutes, { useHash: true })],
+        declarations: [app_component_1.AppComponent, employee_component_1.EmployeeComponent, pageNotFound_component_1.PageNotFoundComponent, home_component_1.HomeComponent, employeeList_component_1.EmployeeListComponent, employeeCount_component_1.EmployeeCountComponent, simple_component_1.SimpleComponent],
+        bootstrap: [app_component_1.AppComponent],
+        providers: [employee_service_1.EmployeeService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

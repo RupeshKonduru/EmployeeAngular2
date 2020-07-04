@@ -22,10 +22,6 @@ var Employee = (function () {
         //this.annualSalary = annualSalary;
         //this.dateOfBirth = dateOfBirth;
     }
-    // Implementation of the interface method
-    Employee.prototype.computeMonthlySalary = function (annualSalary) {
-        return annualSalary / 12;
-    };
     return Employee;
 }());
 exports.Employee = Employee;

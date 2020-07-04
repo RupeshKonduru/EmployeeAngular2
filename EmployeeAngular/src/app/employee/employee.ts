@@ -29,7 +29,7 @@ export class Employee implements IEmployee {
     }
 
     // Implementation of the interface method
-    computeMonthlySalary(annualSalary: number): number {
-        return annualSalary / 12;
-    }
+    //computeMonthlySalary(annualSalary: number): number {
+    //    return annualSalary / 12;
+    //}
 }
