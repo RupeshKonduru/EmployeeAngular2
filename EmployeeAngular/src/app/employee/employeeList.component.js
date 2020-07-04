@@ -15,10 +15,11 @@ var employee_service_1 = require("./employee.service");
 var router_1 = require("@angular/router");
 var userPreferences_service_1 = require("./userPreferences.service");
 var EmployeeListComponent = (function () {
-    function EmployeeListComponent(_employeeService, _activatedRoute, _userPreferencesService) {
+    function EmployeeListComponent(_employeeService, _activatedRoute, _userPreferencesService, _route) {
         this._employeeService = _employeeService;
         this._activatedRoute = _activatedRoute;
         this._userPreferencesService = _userPreferencesService;
+        this._route = _route;
         this.selectedEmployeeCountRadioButton = 'All';
         // Inject EmployeeService using the constructor
         // The private variable _employeeService which points to
@@ -77,7 +78,9 @@ EmployeeListComponent = __decorate([
         providers: [employee_service_1.EmployeeService]
     }),
     __metadata("design:paramtypes", [employee_service_1.EmployeeService,
-        router_1.ActivatedRoute, userPreferences_service_1.UserPreferencesService])
+        router_1.ActivatedRoute,
+        userPreferences_service_1.UserPreferencesService,
+        router_1.Router])
 ], EmployeeListComponent);
 exports.EmployeeListComponent = EmployeeListComponent;
 //# sourceMappingURL=employeeList.component.js.map

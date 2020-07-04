@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { IEmployee } from './employee';
 // Import EmployeeService
 import { EmployeeService } from './employee.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { UserPreferencesService } from './userPreferences.service';
+
+
 
 @Component({
     selector: 'list-employee',
@@ -27,9 +29,13 @@ export class EmployeeListComponent implements OnInit {
     // "Problem with the service. Please try again after sometime"
     statusMessage: string = 'Loading data. Please wait...';
     constructor(private _employeeService: EmployeeService,
-        private _activatedRoute: ActivatedRoute, private _userPreferencesService: UserPreferencesService) {
+        private _activatedRoute: ActivatedRoute,
+        private _userPreferencesService: UserPreferencesService,
+    private _route:Router) {
 
     }
+    
+    
     get colour(): string {
         return this._userPreferencesService.colourPreference;
     }
@@ -69,4 +75,5 @@ export class EmployeeListComponent implements OnInit {
     onEmployeeCountRadioButtonChange(selectedRadioButtonValue: string): void {
         this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
     }
+    
 }

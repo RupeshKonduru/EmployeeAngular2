@@ -13,6 +13,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeService } from './employee/employee.service';
 import { RouterModule, Routes } from '@angular/router';
 import { UserPreferencesService } from './employee/userPreferences.service';
+import { TestModule } from './test.module'
 // Routes is an array of Route objects
 // Each route maps a URL path to a component
 // The 3rd route specifies the route to redirect to if the path
@@ -32,11 +33,11 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule,
+    imports: [BrowserModule, FormsModule, HttpModule, TestModule,
         RouterModule.forRoot(appRoutes)],  //Also uncommnet system.webserver in web.config
         //RouterModule.forRoot(appRoutes, { useHash: true })],
     declarations: [AppComponent,  EmployeeComponent, PageNotFoundComponent, HomeComponent, EmployeeListComponent, EmployeeCountComponent, SimpleComponent],
     bootstrap: [AppComponent],
-    providers: [EmployeeService, UserPreferencesService]
+    providers: [EmployeeService/*, UserPreferencesService*/]
 })
 export class AppModule { }

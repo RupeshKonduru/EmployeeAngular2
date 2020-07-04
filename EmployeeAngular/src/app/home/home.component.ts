@@ -13,6 +13,7 @@ import { UserPreferencesService } from '../employee/userPreferences.service';
                 Colour Preference :
                 <input type='text' [(ngModel)]='colour' [style.background]="colour"/>
             </div>`
+
 })
 export class HomeComponent {
 
