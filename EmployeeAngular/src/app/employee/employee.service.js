@@ -33,12 +33,12 @@ var EmployeeService = (function () {
     EmployeeService.prototype.getEmployees = function () {
         // To convert Observable<Response> to Observable<IEmployee[]>
         // we are using the map operator
-        return this._http.get('http://localhost:52654/api/employees')
+        return this._http.get('http://localhost:52650/api/employees')
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     EmployeeService.prototype.getEmployeeByCode = function (empCode) {
-        return this._http.get("http://localhost:52654/api/employees/" + empCode)
+        return this._http.get("http://localhost:52650/api/employees/" + empCode)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
@@ -47,7 +47,7 @@ var EmployeeService = (function () {
     // return a Promise. When an exception is thrown handlePromiseError()
     // logs the error to the console and throws the exception again
     EmployeeService.prototype.getEmployeeByPromiseCode = function (empCode) {
-        return this._http.get("http://localhost:52654/api/employees/" + empCode)
+        return this._http.get("http://localhost:52650/api/employees/" + empCode)
             .map(function (response) { return response.json(); })
             .toPromise()
             .catch(this.handlePromiseError);

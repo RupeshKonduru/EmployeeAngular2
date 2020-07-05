@@ -26,12 +26,12 @@ export class EmployeeService {
     getEmployees(): Observable<IEmployee[]> {
         // To convert Observable<Response> to Observable<IEmployee[]>
         // we are using the map operator
-        return this._http.get('http://localhost:52654/api/employees')
+        return this._http.get('http://localhost:52650/api/employees')
             .map((response: Response) => <IEmployee[]>response.json())
             .catch(this.handleError);
     }
     getEmployeeByCode(empCode: string): Observable<IEmployee> {
-        return this._http.get("http://localhost:52654/api/employees/" + empCode)
+        return this._http.get("http://localhost:52650/api/employees/" + empCode)
             .map((response: Response) => <IEmployee>response.json())
             .catch(this.handleError);
     }
@@ -41,7 +41,7 @@ export class EmployeeService {
     // return a Promise. When an exception is thrown handlePromiseError()
     // logs the error to the console and throws the exception again
     getEmployeeByPromiseCode(empCode: string): Promise<IEmployee> {
-        return this._http.get("http://localhost:52654/api/employees/" + empCode)
+        return this._http.get("http://localhost:52650/api/employees/" + empCode)
             .map((response: Response) => <IEmployee>response.json())
             .toPromise()
             .catch(this.handlePromiseError);
